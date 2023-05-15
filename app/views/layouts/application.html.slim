@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title
+      | FUNNYMOVIE
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
+    = javascript_importmap_tags 'application'
+  body
+    .container
+      = render 'layouts/header'
+      - flash.each do |key, value|
+        |  <div class="alert alert-
+        = key
+        | ">
+        = value
+    .main-content
+      = yield
+    = render 'layouts/share/notify'
+    = render 'layouts/footer'

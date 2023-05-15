@@ -1,0 +1,14 @@
+div class='row movie-container'
+  div class='col-md-4 offset-md-1'
+    iframe allowfullscreen="" frameborder="0" height="255" src="https://www.youtube.com/embed/#{movie.youtube_id}" width="450" 
+  div class='col-md-4 offset-md-1'
+    p class='title'
+      a href="#{movie.youtube_url}"
+        = movie.title
+    p class='email'
+      | Shared by: 
+      = movie.user.email
+    p class='description'
+      | Description: 
+      br
+      span = movie.description

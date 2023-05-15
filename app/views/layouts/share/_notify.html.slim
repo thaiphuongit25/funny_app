@@ -1,0 +1,17 @@
+#notify.modal.fade[tabindex="-1" role="dialog" aria-labelledby="notify" aria-hidden="true"]
+  .modal-dialog[role="document"]
+    .modal-content
+      .modal-header
+        h5#notify.modal-title
+          | New movie
+        button.close[type="button" data-bs-dismiss="modal" aria-label="Close"]
+          i.fa.fa-close
+      .modal-body
+        p
+          strong
+            | Shared by: 
+          span.notify-email
+        p
+          strong
+            | Description: 
+          a.notify-title[target="_blank"]

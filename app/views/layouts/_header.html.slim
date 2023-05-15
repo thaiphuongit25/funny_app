@@ -1,0 +1,17 @@
+.topnav
+  h1
+    i.fa.fa-home
+    = link_to 'Funny Movies', root_path, class: 'home-url'
+  .login-container
+    - unless signed_in?
+      = form_with model: User.new, url: sign_in_path, id: 'new_user' do |f|
+        = f.email_field :email, required: true, class: 'input-form', placeholder: 'email'
+        = f.password_field :encrypted_password, required: true, class: 'input-form', placeholder: 'password'
+        = f.submit 'Login / Register', class: 'button'
+    - else
+      span.welcome
+        | Welcome
+      span
+        = current_user.email
+      = link_to 'Share more movie', share_path, class: 'button share-movie'
+      = link_to 'Log out', logout_path, data: { "turbo-method": :delete }, class: 'button log-out'
