@@ -1,26 +1,53 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
 
 * ...
 # funny_app
-# cp .env.example to .env
+```
+copy .env.example to .env
+```
+
+* Run project with without docker
+```
+copy database.yml.example to database.yml
+```
+- init db
+```
+  rails db:create
+  rails db:migrate
+```
+
+- Run unitest
+```
+  rspec
+```
+
+* Run project with docker
+```
+copy database.docker.example to database.yml
+```
+- Build
+```
+docker-compose build
+```
+```
+docker-compose run --rm funny_app_rails bundle install
+```
+```
+docker-compose run --rm funny_app_rails rails db:create
+```
+```
+docker-compose run --rm funny_app_rails rails db:migrate
+```
+- Start
+```
+docker-compose up -d
+```
+- Remove
+```
+docker-compose down -v
+```
+- Run
+```
+http://localhost:3018
+```

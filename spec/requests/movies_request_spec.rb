@@ -19,7 +19,7 @@ RSpec.describe 'Movies', type: :request do
         login_as(user)
 
         post '/movies', params: { movie: {youtube_url: 'https://www.youtube.com/watch?v=test_youtube_id_invalid'}}
-        expect(response).to render_template(:new)
+        expect(response).to render_template(:share)
         expect(response.body).to include('Your video is invalid')
       end
     end
